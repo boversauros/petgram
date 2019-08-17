@@ -17,10 +17,11 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     <Article ref={ref}>
       {
         show && <Fragment>
-          <a href={`/detail/${id}`} />
-          <ImgWrapper>
-            <Img src={src} />
-          </ImgWrapper>
+          <a href={`/?detail=${id}`}>
+            <ImgWrapper>
+              <Img src={src} />
+            </ImgWrapper>
+          </a>
           <Button onClick={() => setLiked(!liked)}>
             <Icon size='32px' /> {likes} likes
           </Button>
