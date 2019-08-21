@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Link } from '@reach/router'
 import { useNearScreen } from '../../hooks/useNearScreen'
 import { ToggleLike } from '../../container/ToggleLikeMutation'
 import { ImgWrapper, Img, Article } from './styles'
@@ -12,11 +13,11 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     <Article ref={ref}>
       {
         show && <Fragment>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/detail/${id}`}>
             <ImgWrapper>
               <Img src={src} />
             </ImgWrapper>
-          </a>
+          </Link>
           <ToggleLike id={id} likes={likes} />
         </Fragment>
       }
