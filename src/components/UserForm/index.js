@@ -1,19 +1,25 @@
 import React, { Fragment } from 'react'
 import { useInputValue } from '../../hooks/useInputValue'
-import { Form, Input, Button, Title } from './styles'
+import { Form, Input, Button, Title, Error } from './styles'
 
-export const UserForm = ({ onSubmit, title }) => {
+export const UserForm = ({ error, disable, onSubmit, title }) => {
   const email = useInputValue('')
   const password = useInputValue('')
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    onSubmit({ email: email.value, password: password.value })
+  }
+
   return (
     <Fragment>
-      <Title>{title}</Title>
-      <Form onSubmit={onSubmit}>
-        <Input placeholder='email' {...email} />
-        <Input placeholder='password' type='password' {...password} />
+      <Form disabled={disable} onSubmit={handleSubmit}>
+        <Title>{title}</Title>
+        <Input disabled={disable} placeholder='email' {...email} />
+        <Input disabled={disable}placeholder='password' type='password' {...password} />
         <Button>{title}</Button>
       </Form>
+      {error && <Error>{error}</Error>}
     </Fragment>
   )
 }
