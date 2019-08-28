@@ -6,7 +6,7 @@ import { ImgWrapper, Img, Article } from './styles'
 
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
 
-export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
+export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_IMAGE }) => {
   const [show, ref] = useNearScreen()
 
   return (
@@ -18,7 +18,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
               <Img src={src} />
             </ImgWrapper>
           </Link>
-          <ToggleLike id={id} likes={likes} />
+          <ToggleLike id={id} likes={likes} liked={liked} />
         </Fragment>
       }
     </Article>
