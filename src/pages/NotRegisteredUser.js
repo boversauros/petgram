@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { Layout } from '../components/Layout'
 import { Register } from '../container/RegisterMutation'
 import { Login } from '../container/LoginMutation'
 
 export const NotRegisteredUser = () => {
   return (
-    <Fragment>
+    <Layout>
       <Register />
       <Login />
-    </Fragment>
+    </Layout>
   )
 }
