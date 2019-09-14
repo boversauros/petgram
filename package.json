@@ -4,29 +4,45 @@
   "description": "Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress open",
     "lint": "standard",
     "now-build": "npm run build",
+    "serve:dev": "webpack --mode 'development' && npx serve dist -s",
     "build": "webpack",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server --history-api-fallback"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
+    "cypress": "^3.4.1",
     "html-webpack-plugin": "^3.2.0",
     "standard": "^13.1.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.8.0",
+    "webpack-pwa-manifest": "^4.0.0",
+    "workbox-webpack-plugin": "^4.3.1"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^3.0.1",
+    "@reach/router": "^1.2.1",
+    "apollo-boost": "^0.4.4",
+    "axios": "^0.19.0",
+    "graphql": "^14.4.2",
+    "intersection-observer": "^0.7.0",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
+    "react-apollo": "^3.0.1",
     "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "react-icons": "^3.7.0",
     "styled-components": "^4.3.2"
   },
   "standard": {
@@ -35,6 +51,7 @@
     ]
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
     "extends": [
       "./node_modules/standard/eslintrc.json"
     ]
